@@ -47,7 +47,7 @@ mpv/
 
 ### 画质
 
-- 缩放：`ewa_lanczos4sharpest`（锐利，适合动画/干净源），抗振铃 `0.7`。
+- 缩放：`ewa_lanczossharp`（平衡锐度与振铃），抗振铃 `0.5`。
 - 去色带：`deband` + 4 次迭代。
 - 补帧：`interpolation=yes`（`video-sync=display-resample`），适合高刷新率 OLED。
 
@@ -57,7 +57,7 @@ mpv/
 
 ### 音频
 
-- `ao=wasapi` + `audio-exclusive=yes`：Windows 独占直通。
+- `ao=wasapi`：Windows 音频输出。
 
 ### 其他
 
@@ -100,7 +100,6 @@ mpv 0.42 内置 `menu.conf` 上下文菜单，默认**右键唤起**。本仓库
 
 ## 注意事项
 
-- 本配置为 **Windows 专用**：`ao=wasapi`、`audio-exclusive`、`gpu-api=d3d11`、
+- 本配置为 **Windows 专用**：`ao=wasapi`、`gpu-api=d3d11`、
   `direct_io=yes` 等均为 Windows 专属选项。
-- `audio-exclusive=yes` 会独占音频设备，其他程序将无法出声；如影响日常使用可删除。
-- `scale=ewa_lanczos4sharpest` 较锐，看实拍片源若出现边缘振铃可退到 `ewa_lanczossharp`。
+- `scale=ewa_lanczossharp` 平衡锐度与振铃，若仍觉偏锐可退到 `ewa_lanczossoft`。
